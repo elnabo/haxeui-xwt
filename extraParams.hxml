@@ -1,0 +1,3 @@
+-D net-ver=45
+-net-lib /usr/lib/mono/4.5/System.Xaml.dll
+-net-lib dlls/Xwt.dll

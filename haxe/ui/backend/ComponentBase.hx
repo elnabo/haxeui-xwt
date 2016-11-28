@@ -44,7 +44,7 @@ class ComponentBase
 
 	function handleCreate (native:Bool)
 	{
-    }
+	}
 
 	function handlePosition (left:Null<Float>, top:Null<Float>, style:Style)
 	{
@@ -56,7 +56,7 @@ class ComponentBase
 
 	function handlePreReposition ()
 	{
-    }
+	}
 
 	function handleReady ()
 	{

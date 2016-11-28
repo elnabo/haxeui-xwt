@@ -30,7 +30,7 @@ class ScreenBase
 
 	function new ()
 	{
-    }
+	}
 
 	function addComponent (component:Component)
 	{
@@ -70,5 +70,5 @@ class ScreenBase
 
 	function unmapEvent (type:String, listener:UIEvent->Void)
 	{
-    }
+	}
 }
