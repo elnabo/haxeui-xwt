@@ -13,6 +13,8 @@ class ScreenBase
 	public var options : Dynamic;
 	public var width(get, null) : Float;
 
+	var _window(get, never) : xwt.Window;
+
 	function get_dpi () : Float
 	{
 		return 72.0; //TODO
@@ -20,12 +22,17 @@ class ScreenBase
 
 	function get_height () : Float
 	{
-		return options.window.Height;
+		return _window.Height;
 	}
 
 	function get_width () : Float
 	{
-		return options.window.Width;
+		return _window.Width;
+	}
+
+	function get__window () : xwt.Window
+	{
+		return options.window;
 	}
 
 	function new ()
@@ -34,6 +41,7 @@ class ScreenBase
 
 	function addComponent (component:Component)
 	{
+		_window.Content = component._widget;
 	}
 
 	function handleSetComponentIndex (child:Component, index:Int)

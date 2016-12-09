@@ -10,6 +10,9 @@ import haxe.ui.util.Rectangle;
 
 class ComponentBase
 {
+	@:allow(haxe.ui.backend.ScreenBase)
+	var _widget : xwt.Widget;
+
 	function new ()
 	{
 	}
@@ -44,6 +47,10 @@ class ComponentBase
 
 	function handleCreate (native:Bool)
 	{
+		var className = Type.getClassName(Type.getClass(this));
+		var nativeComponentClass = Toolkit.nativeConfig.query('component[id=${className}].@class', "Xwt.Button");
+
+		_widget = cs.system.Activator.CreateInstance(cs.system.Type.GetType('$nativeComponentClass, Xwt'));
 	}
 
 	function handlePosition (left:Null<Float>, top:Null<Float>, style:Style)
