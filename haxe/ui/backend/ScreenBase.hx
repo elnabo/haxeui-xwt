@@ -13,6 +13,7 @@ class ScreenBase
 	public var options : Dynamic;
 	public var width(get, null) : Float;
 
+	@:allow(haxe.ui.backend) var _canvas(get, never) : xwt.Canvas;
 	var _window(get, never) : xwt.Window;
 
 	function get_dpi () : Float
@@ -30,6 +31,11 @@ class ScreenBase
 		return _window.Width;
 	}
 
+	function get__canvas () : xwt.Canvas
+	{
+		return options.canvas;
+	}
+
 	function get__window () : xwt.Window
 	{
 		return options.window;
@@ -41,7 +47,19 @@ class ScreenBase
 
 	function addComponent (component:Component)
 	{
-		_window.Content = component._widget;
+		if (component._widget != null)
+		{
+			_canvas.AddChild(component._widget);
+		}
+
+		var ch = @:privateAccess component._children;
+		if (ch != null)
+		{
+			for (c in ch)
+			{
+				addComponent(c);
+			}
+		}
 	}
 
 	function handleSetComponentIndex (child:Component, index:Int)
@@ -64,6 +82,19 @@ class ScreenBase
 
 	function removeComponent (component:Component)
 	{
+		if (component._widget != null)
+		{
+			_canvas.RemoveChild(component._widget);
+		}
+
+		var ch = @:privateAccess component._children;
+		if (ch != null)
+		{
+			for (c in ch)
+			{
+				addComponent(c);
+			}
+		}
 	}
 
 	function showDialog (content:Component, options:Dynamic=null, callback:DialogButton->Void=null) : Dialog

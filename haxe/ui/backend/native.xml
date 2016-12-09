@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<native>
+	<component id="haxe.ui.components.Button" class="Xwt.Button" allowChildren="false">
+		<behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
+		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	</component>
+	<component id="haxe.ui.components.Image" class="Xwt.ImageView" allowChildren="false">
+		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	</component>
+	<component id="haxe.ui.components.Label" class="Xwt.Label" allowChildren="false">
+		<behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
+		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	</component>
+	
+	<component id="haxe.ui.containers.HBox" class="CONTAINER" allowChildren="true" />
+	<component id="haxe.ui.containers.VBox" class="CONTAINER" allowChildren="true" />
+</native>

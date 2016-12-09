@@ -2,16 +2,18 @@ package haxe.ui.backend;
 
 import haxe.ui.core.Component;
 import haxe.ui.core.ImageDisplay;
+import haxe.ui.core.Screen;
 import haxe.ui.core.TextDisplay;
 import haxe.ui.core.TextInput;
 import haxe.ui.core.UIEvent;
 import haxe.ui.styles.Style;
 import haxe.ui.util.Rectangle;
 
+using StringTools;
+
 class ComponentBase
 {
-	@:allow(haxe.ui.backend.ScreenBase)
-	var _widget : xwt.Widget;
+	@:allow(haxe.ui.backend) var _widget : xwt.Widget;
 
 	function new ()
 	{
@@ -38,7 +40,7 @@ class ComponentBase
 
 	function handleAddComponent (child:Component) : Component
 	{
-		return null;
+		return child;
 	}
 
 	function handleClipRect (value:Rectangle)
@@ -48,13 +50,30 @@ class ComponentBase
 	function handleCreate (native:Bool)
 	{
 		var className = Type.getClassName(Type.getClass(this));
-		var nativeComponentClass = Toolkit.nativeConfig.query('component[id=${className}].@class', "Xwt.Button");
+		var nativeComponentClass = Toolkit.nativeConfig.query('component[id=${className}].@class', "MISSING");
 
-		_widget = cs.system.Activator.CreateInstance(cs.system.Type.GetType('$nativeComponentClass, Xwt'));
+		if (nativeComponentClass != "MISSING" && nativeComponentClass != "CONTAINER")
+		{
+			_widget = cs.system.Activator.CreateInstance(cs.system.Type.GetType('$nativeComponentClass, Xwt'));
+		}
 	}
 
 	function handlePosition (left:Null<Float>, top:Null<Float>, style:Style)
 	{
+		var component:Component = cast this;
+
+		if (_widget != null)
+		{
+			Screen.instance._canvas.SetChildBounds(_widget, new xwt.Rectangle(component.screenLeft, component.screenTop, component.width, component.height));
+		}
+
+		if (component._children != null)
+		{
+			for (c in component._children)
+			{
+				c.handlePosition(null, null, null);
+			}
+		}
 	}
 
 	function handlePostReposition ()
@@ -71,7 +90,7 @@ class ComponentBase
 
 	function handleRemoveComponent (child:Component, dispose:Bool=true) : Component
 	{
-		return null;
+		return child;
 	}
 
 	function handleSetComponentIndex (child:Component, index:Int)
@@ -80,6 +99,7 @@ class ComponentBase
 
 	function handleSize (width:Null<Float>, height:Null<Float>, style:Style)
 	{
+		handlePosition(null, null, null);
 	}
 
 	function handleVisibility (show:Bool)

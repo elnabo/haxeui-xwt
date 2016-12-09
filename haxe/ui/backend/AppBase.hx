@@ -6,6 +6,7 @@ class AppBase
 {
 	var _onEnd : Void->Void;
 	var _window : xwt.Window;
+	var _canvas : xwt.Canvas;
 
 	function new ()
 	{
@@ -19,12 +20,15 @@ class AppBase
 		xwt.Application.Initialize(if (windows) xwt.ToolkitType.Wpf else if (mac) xwt.ToolkitType.Cocoa else xwt.ToolkitType.Gtk3);
 
 		_window = new xwt.Window();
+		_canvas = new xwt.Canvas();
+		_window.Content = _canvas;
 	}
 
 	function getToolkitInit () : Dynamic
 	{
 		return {
-			window: _window
+			window: _window,
+			canvas: _canvas
 		};
 	}
 
