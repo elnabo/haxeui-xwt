@@ -15,17 +15,17 @@ class ScreenBase
 
 	function get_dpi () : Float
 	{
-		return 72.0;
+		return 72.0; //TODO
 	}
 
 	function get_height () : Float
 	{
-		return 0.0;
+		return options.window.Height;
 	}
 
 	function get_width () : Float
 	{
-		return 0.0;
+		return options.window.Width;
 	}
 
 	function new ()

@@ -55,7 +55,8 @@ class AppBase
 		_window.Dispose();
 		xwt.Application.Exit();
 
-		if (_onEnd != null) {
+		if (_onEnd != null)
+		{
 			_onEnd();
 		}
 	}
