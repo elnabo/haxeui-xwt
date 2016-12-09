@@ -5,6 +5,7 @@
 		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
 	</component>
 	<component id="haxe.ui.components.Image" class="Xwt.ImageView" allowChildren="false">
+		<behaviour id="resource" class="haxe.ui.backend.xwt.behaviours.ControlBitmap" />
 		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
 	</component>
 	<component id="haxe.ui.components.Label" class="Xwt.Label" allowChildren="false">
