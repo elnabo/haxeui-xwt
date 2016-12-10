@@ -13,6 +13,6 @@
 		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
 	</component>
 	
-	<component id="haxe.ui.containers.HBox" class="CONTAINER" allowChildren="true" />
-	<component id="haxe.ui.containers.VBox" class="CONTAINER" allowChildren="true" />
+	<component id="haxe.ui.containers.HBox" class="Xwt.Canvas" allowChildren="true" />
+	<component id="haxe.ui.containers.VBox" class="Xwt.Canvas" allowChildren="true" />
 </native>

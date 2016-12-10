@@ -52,7 +52,7 @@ class ComponentBase
 		var className = Type.getClassName(Type.getClass(this));
 		var nativeComponentClass = Toolkit.nativeConfig.query('component[id=${className}].@class', "MISSING");
 
-		if (nativeComponentClass != "MISSING" && nativeComponentClass != "CONTAINER")
+		if (nativeComponentClass != "MISSING")
 		{
 			_widget = cs.system.Activator.CreateInstance(cs.system.Type.GetType('$nativeComponentClass, Xwt'));
 		}

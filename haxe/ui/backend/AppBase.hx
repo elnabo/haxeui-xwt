@@ -42,19 +42,28 @@ class AppBase
 	{
 		_onEnd = onEnd;
 
-		var frameWidth = 800;
-		var frameHeight = 600;
-
-		_window.Size = new xwt.Size(frameWidth, frameHeight);
-		_window.InitialLocation = CenterScreen;
-
-		_window.add_Closed(function (_, _) { stop(); });
+		_window.add_Closed(function (_, _) {
+			stop();
+		});
 
 		onReady();
 	}
 
 	public function start ()
 	{
+		var width = 0.0;
+		var height = 0.0;
+		var iter = _canvas.Children.GetEnumerator();
+
+		while ({ iter.MoveNext(); iter.Current != null; })
+		{
+			var r = _canvas.GetChildBounds(iter.Current);
+			width = Math.max(width, r.X + r.Width);
+			height = Math.max(height, r.Y + r.Height);
+		}
+
+		_window.Size = new xwt.Size(width + _window.PaddingLeft + _window.PaddingRight, height + _window.PaddingTop + _window.PaddingBottom);
+		_window.InitialLocation = CenterScreen;
 		_window.Show();
 		xwt.Application.Run();
 		stop();
