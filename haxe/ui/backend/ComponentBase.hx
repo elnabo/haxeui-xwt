@@ -123,6 +123,7 @@ class ComponentBase
 
 	function mapEvent (type:String, listener:UIEvent->Void)
 	{
+		haxe.ui.backend.xwt.EventMapper.mapEvent(_widget, type, listener);
 	}
 
 	function removeImageDisplay ()

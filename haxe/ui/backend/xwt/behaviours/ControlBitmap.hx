@@ -7,12 +7,6 @@ class ControlBitmap extends Behaviour
 {
 	override public function get () : Variant
 	{
-		/*
-		if (_component.window == null) {
-		return null;
-		}
-		var ctrl:Control = cast _component.window;
-		*/
 		return null;
 	}
 
@@ -32,4 +26,3 @@ class ControlBitmap extends Behaviour
 		}
 	}
 }
-	

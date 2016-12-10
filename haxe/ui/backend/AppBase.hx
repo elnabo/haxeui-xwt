@@ -1,6 +1,7 @@
 package haxe.ui.backend;
 
 import haxe.ui.Toolkit;
+import haxe.ui.core.Screen;
 
 class AppBase
 {
@@ -22,6 +23,11 @@ class AppBase
 		_window = new xwt.Window();
 		_canvas = new xwt.Canvas();
 		_window.Content = _canvas;
+
+		_canvas.add_MouseMoved(function (_, mouseEvent:xwt.MouseMovedEventArgs) {
+			Screen.instance._mouseX = mouseEvent.X;
+			Screen.instance._mouseY = mouseEvent.Y;
+		});
 	}
 
 	function getToolkitInit () : Dynamic

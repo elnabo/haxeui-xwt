@@ -14,6 +14,8 @@ class ScreenBase
 	public var width(get, null) : Float;
 
 	@:allow(haxe.ui.backend) var _canvas(get, never) : xwt.Canvas;
+	@:allow(haxe.ui.backend) var _mouseX : Float;
+	@:allow(haxe.ui.backend) var _mouseY : Float;
 	var _window(get, never) : xwt.Window;
 
 	function get_dpi () : Float
@@ -43,6 +45,7 @@ class ScreenBase
 
 	function new ()
 	{
+		_mouseX = _mouseY = 0.0;
 	}
 
 	function addComponent (component:Component)
@@ -73,6 +76,7 @@ class ScreenBase
 
 	function mapEvent (type:String, listener:UIEvent->Void)
 	{
+		haxe.ui.backend.xwt.EventMapper.mapEvent(_canvas, type, listener);
 	}
 
 	function messageDialog (message:String, title:String=null, options:Dynamic=null, callback:DialogButton->Void=null) : Dialog
