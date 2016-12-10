@@ -1,3 +1,6 @@
--D net-ver=45
--net-lib /usr/lib/mono/4.5/System.Xaml.dll
+-D net-ver=40
+-net-lib dlls/System.Xaml.dll
 -net-lib dlls/Xwt.dll
+
+--macro include("haxe.ui.backend.xwt.behaviours")
+--macro include("haxe.ui.backend.xwt.sizes")
