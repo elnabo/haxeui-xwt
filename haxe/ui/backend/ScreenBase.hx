@@ -52,9 +52,11 @@ class ScreenBase
 	{
 		if (component._widget != null)
 		{
+            component.__parent = _canvas;
 			_canvas.AddChild(component._widget);
 		}
 
+        /*
 		var ch = @:privateAccess component._children;
 		if (ch != null)
 		{
@@ -63,6 +65,7 @@ class ScreenBase
 				addComponent(c);
 			}
 		}
+        */
 	}
 
 	function handleSetComponentIndex (child:Component, index:Int)
