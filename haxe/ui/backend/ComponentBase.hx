@@ -1,10 +1,8 @@
 package haxe.ui.backend;
 
-import haxe.ui.backend.xwt.Type.XwtType;
-import haxe.ui.backend.xwt.sizes.WidgetSize;
+import haxe.ui.backend.xwt.Type as XwtType;
 import haxe.ui.core.Component;
 import haxe.ui.core.ImageDisplay;
-import haxe.ui.core.Screen;
 import haxe.ui.core.TextDisplay;
 import haxe.ui.core.TextInput;
 import haxe.ui.core.UIEvent;
@@ -15,6 +13,7 @@ using StringTools;
 
 class ComponentBase
 {
+	@:allow(haxe.ui.backend) var _parent : xwt.Canvas;
 	@:allow(haxe.ui.backend) var _widget : xwt.Widget;
 
 	function new ()
@@ -23,14 +22,15 @@ class ComponentBase
 
 	function applyStyle (style:Style)
 	{
-        if (_widget == null) {
-            return;
-        }
-        
-        if (style.fontSize != null) {
-            var f = _widget.get_Font().WithSize(style.fontSize);
-            _widget.set_Font(f);
-        }
+		if (_widget == null)
+		{
+			return;
+		}
+
+		if (style.fontSize != null)
+		{
+			_widget.Font = _widget.Font.WithSize(style.fontSize);
+		}
 	}
 
 	public function getImageDisplay () : ImageDisplay
@@ -50,11 +50,17 @@ class ComponentBase
 
 	function handleAddComponent (child:Component) : Component
 	{
-        if (Std.is(_widget, xwt.Canvas)) {
-            var canvas:xwt.Canvas = cast _widget;
-            child.__parent = canvas;
-            canvas.AddChild(child._widget);
-        }
+		switch (XwtType.of(_widget))
+		{
+			case Canvas:
+				var canvas:xwt.Canvas = cast _widget;
+				child._parent = canvas;
+				canvas.AddChild(child._widget);
+
+			default:
+				throw "Only containers can have children";
+		}
+
 		return child;
 	}
 
@@ -66,43 +72,24 @@ class ComponentBase
 	{
 		var className = Type.getClassName(Type.getClass(this));
 		var nativeComponentClass = Toolkit.nativeConfig.query('component[id=${className}].@class', "Xwt.Canvas");
-    	_widget = cs.system.Activator.CreateInstance(cs.system.Type.GetType('$nativeComponentClass, Xwt'));
+		_widget = cs.system.Activator.CreateInstance(cs.system.Type.GetType('$nativeComponentClass, Xwt'));
 	}
 
 	function handlePosition (left:Null<Float>, top:Null<Float>, style:Style)
 	{
-        /*
-		var component:Component = cast this;
+		var bounds = _parent.GetChildBounds(_widget);
 
-		if (_widget != null)
+		if (left != null)
 		{
-			Screen.instance._canvas.SetChildBounds(_widget, new xwt.Rectangle(component.screenLeft, component.screenTop, component.width, component.height));
+			bounds.Left = left;
 		}
 
-		if (component._children != null)
+		if (top != null)
 		{
-			for (c in component._children)
-			{
-				c.handlePosition(null, null, null);
-			}
+			bounds.Top = top;
 		}
-        */
-        
-        /*
-        _widget.WidthRequest = 100;
-        _widget.HeightRequest = 100;
-        */
-        if (Std.is(__parent, xwt.Canvas)) {
-            var p:xwt.Canvas = cast __parent;
-            var rc:xwt.Rectangle = p.GetChildBounds(_widget);
-            if (left != null) {
-                rc.Left = left;
-            }
-            if (top != null) {
-                rc.Top = top;
-            }
-            p.SetChildBounds(_widget, rc);
-        }
+
+		_parent.SetChildBounds(_widget, bounds);
 	}
 
 	function handlePostReposition ()
@@ -128,17 +115,19 @@ class ComponentBase
 
 	function handleSize (width:Null<Float>, height:Null<Float>, style:Style)
 	{
-        if (Std.is(__parent, xwt.Canvas)) {
-            var p:xwt.Canvas = cast __parent;
-            var rc:xwt.Rectangle = p.GetChildBounds(_widget);
-            if (width != null) {
-                rc.Width = width;
-            }
-            if (height != null) {
-                rc.Height = height;
-            }
-            p.SetChildBounds(_widget, rc);
-        }
+		var bounds = _parent.GetChildBounds(_widget);
+
+		if (width != null)
+		{
+			bounds.Width = width;
+		}
+
+		if (height != null)
+		{
+			bounds.Height = height;
+		}
+
+		_parent.SetChildBounds(_widget, bounds);
 	}
 
 	function handleVisibility (show:Bool)
@@ -172,6 +161,4 @@ class ComponentBase
 	function unmapEvent (type:String, listener:UIEvent->Void)
 	{
 	}
-    
-    public var __parent:xwt.Widget;
 }

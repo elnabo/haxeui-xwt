@@ -15,8 +15,10 @@ class EventMapper
 
 		switch (type)
 		{
-			case "Click": //MouseEvent.CLICK: //"Only inline or read-only (default, never) fields can be used as a pattern"
+			case MouseEvent.CLICK:
 				onClick(w, listener);
+
+			case UIEvent.RESIZE:
 
 			default:
 				throw 'Event "$type" not handled';
