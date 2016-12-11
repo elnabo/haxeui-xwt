@@ -51,18 +51,7 @@ class AppBase
 
 	public function start ()
 	{
-		var width = 0.0;
-		var height = 0.0;
-		var iter = _canvas.Children.GetEnumerator();
-
-		while ({ iter.MoveNext(); iter.Current != null; })
-		{
-			var r = _canvas.GetChildBounds(iter.Current);
-			width = Math.max(width, r.X + r.Width);
-			height = Math.max(height, r.Y + r.Height);
-		}
-
-		_window.Size = new xwt.Size(width + _window.PaddingLeft + _window.PaddingRight, height + _window.PaddingTop + _window.PaddingBottom);
+		_window.Size = Screen.instance.size();
 		_window.InitialLocation = CenterScreen;
 		_window.Show();
 		xwt.Application.Run();

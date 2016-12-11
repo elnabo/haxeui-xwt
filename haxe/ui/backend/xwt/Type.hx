@@ -4,7 +4,9 @@ enum XwtType
 {
 	Button;
 	Canvas;
+	CheckBox;
 	Label;
+	RadioButton;
 	Other;
 }
 
@@ -14,7 +16,9 @@ class Type
 	{
 		return if (Std.is(w, xwt.Button)) Button;
 		else if (Std.is(w, xwt.Canvas)) Canvas;
+		else if (Std.is(w, xwt.CheckBox)) CheckBox;
 		else if (Std.is(w, xwt.Label)) Label;
+		else if (Std.is(w, xwt.RadioButton)) RadioButton;
 		else Other;
 	}
 }

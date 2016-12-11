@@ -21,7 +21,7 @@ class EventMapper
 			case UIEvent.RESIZE:
 
 			default:
-				throw 'Event "$type" not handled';
+				trace('Event "$type" not handled');
 		}
 	}
 
@@ -40,7 +40,7 @@ class EventMapper
 				cast(w, xwt.Button).add_Clicked(fn);
 
 			default:
-				throw "Component doesn't have click event";
+				trace('Component "$w" doesn\'t have click event');
 		}
 	}
 }

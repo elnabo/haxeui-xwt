@@ -25,12 +25,12 @@ class ScreenBase
 
 	function get_height () : Float
 	{
-		return _window.Height;
+		return size().Height;
 	}
 
 	function get_width () : Float
 	{
-		return _window.Width;
+		return size().Width;
 	}
 
 	function get__canvas () : xwt.Canvas
@@ -96,6 +96,23 @@ class ScreenBase
 	function showDialog (content:Component, options:Dynamic=null, callback:DialogButton->Void=null) : Dialog
 	{
 		return null;
+	}
+
+	@:allow(haxe.ui.backend)
+	function size () : xwt.Size
+	{
+		var width = 0.0;
+		var height = 0.0;
+		var iter = _canvas.Children.GetEnumerator();
+
+		while ({ iter.MoveNext(); iter.Current != null; })
+		{
+			var r = _canvas.GetChildBounds(iter.Current);
+			width = Math.max(width, r.X + r.Width);
+			height = Math.max(height, r.Y + r.Height);
+		}
+
+		return new xwt.Size(width + _window.PaddingLeft + _window.PaddingRight, height + _window.PaddingTop + _window.PaddingBottom);
 	}
 
 	function supportsEvent (type:String) : Bool

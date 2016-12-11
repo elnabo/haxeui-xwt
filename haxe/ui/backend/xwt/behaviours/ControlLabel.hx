@@ -12,8 +12,8 @@ class ControlLabel extends Behaviour
 
 		switch (Type.of(widget))
 		{
-			case Button:
-				return cast(widget, xwt.Button).Label;
+			case Button, CheckBox, RadioButton:
+				return (cast widget).Label;
 
 			case Label:
 				return cast(widget, xwt.Label).Text;
@@ -33,8 +33,8 @@ class ControlLabel extends Behaviour
 
 			switch (Type.of(widget))
 			{
-				case Button:
-					cast(widget, xwt.Button).Label = value;
+				case Button, CheckBox, RadioButton:
+					(cast widget).Label = (value : String);
 
 				case Label:
 					cast(widget, xwt.Label).Text = value;
