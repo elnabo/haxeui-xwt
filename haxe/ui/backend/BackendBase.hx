@@ -2,5 +2,5 @@ package haxe.ui.backend;
 
 class BackendBase
 {
-	public static var id : String = "xwt";
+    public static var id : String = "xwt";
 }

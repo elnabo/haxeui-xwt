@@ -6,41 +6,41 @@ import haxe.ui.core.UIEvent;
 
 class EventMapper
 {
-	public static function mapEvent (w:xwt.Widget, type:String, listener:UIEvent->Void)
-	{
-		if (w == null)
-		{
-			return;
-		}
+    public static function mapEvent (w:xwt.Widget, type:String, listener:UIEvent->Void)
+    {
+        if (w == null)
+        {
+            return;
+        }
 
-		switch (type)
-		{
-			case MouseEvent.CLICK:
-				onClick(w, listener);
+        switch (type)
+        {
+            case MouseEvent.CLICK:
+                onClick(w, listener);
 
-			case UIEvent.RESIZE:
+            case UIEvent.RESIZE:
 
-			default:
-				trace('Event "$type" not handled');
-		}
-	}
+            default:
+                trace('Event "$type" not handled');
+        }
+    }
 
-	public static function onClick (w:xwt.Widget, listener:UIEvent->Void)
-	{
-		var fn = function (a, b) {
-			var event = new MouseEvent(MouseEvent.CLICK);
-			event.screenX = Screen.instance._mouseX;
-			event.screenY = Screen.instance._mouseY;
-			listener(event);
-		}
+    public static function onClick (w:xwt.Widget, listener:UIEvent->Void)
+    {
+        var fn = function (a, b) {
+            var event = new MouseEvent(MouseEvent.CLICK);
+            event.screenX = Screen.instance._mouseX;
+            event.screenY = Screen.instance._mouseY;
+            listener(event);
+        }
 
-		switch (Type.of(w))
-		{
-			case Button:
-				cast(w, xwt.Button).add_Clicked(fn);
+        switch (Type.of(w))
+        {
+            case Button:
+                cast(w, xwt.Button).add_Clicked(fn);
 
-			default:
-				trace('Component "$w" doesn\'t have click event');
-		}
-	}
+            default:
+                trace('Component "$w" doesn\'t have click event');
+        }
+    }
 }

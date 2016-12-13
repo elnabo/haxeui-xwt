@@ -2,8 +2,8 @@ package haxe.ui.backend;
 
 class TextInputBase extends TextDisplayBase
 {
-	function new ()
-	{
-		super();
-	}
+    function new ()
+    {
+        super();
+    }
 }
