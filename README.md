@@ -12,7 +12,7 @@
 
 ## Installation
 
-* `haxeui-xwt` has a dependency to 
+* `haxeui-xwt` has a dependency to
   [`haxeui-core`](https://github.com/haxeui/haxeui-core), and so that too
   must be installed.
 * You will also need a copy of the `Xwt` libraries which can be obtained
@@ -67,5 +67,5 @@ specified [here](https://github.com/haxeui/haxeui-core#adding-components-using-h
   A behaviour driven development engine written specifically for HaxeUI
   (uses [`haxe-bdd`](https://github.com/haxeui/haxe-bdd) which is a
   gherkin/cucumber inspired project).
-* [WWX2016 presentation](https://www.youtube.com/watch?v=L8J8qrR2VSg&feature=youtu.be)
-  - A presentation given at WWX2016 regarding HaxeUI.
+* [WWX2016 presentation](https://www.youtube.com/watch?v=L8J8qrR2VSg&feature=youtu.be) -
+  A presentation given at WWX2016 regarding HaxeUI.

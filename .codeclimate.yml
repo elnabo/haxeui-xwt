@@ -3,6 +3,8 @@ engines:
     enabled: true
   markdownlint:
     enabled: true
+    exclude_fingerprints:
+    - 6d2c708cc8dd7b28fdfc03e5f9bc7d6d
 ratings:
   paths:
     - "**.hx"
