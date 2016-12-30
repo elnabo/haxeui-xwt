@@ -5,8 +5,11 @@ class TextDisplayBase
 	public var color(get, set) : Int;
 	public var fontName(get, set) : String;
 	public var fontSize(get, set) : Null<Float>;
+	public var height(get, set) : Float;
 	public var left(get, set) : Float;
+	public var multiline(get, set) : Bool;
 	public var text(get, set) : String;
+	public var textAlign(get, set) : String;
 	public var textHeight(get, null) : Float;
 	public var textWidth(get, null) : Float;
 	public var top(get, set) : Float;
@@ -27,12 +30,27 @@ class TextDisplayBase
 		return null;
 	}
 
+	function get_height () : Float
+	{
+		return -1;
+	}
+
 	function get_left () : Float
 	{
 		return 0.0;
 	}
 
+	function get_multiline () : Bool
+	{
+		return true;
+	}
+
 	function get_text () : String
+	{
+		return null;
+	}
+
+	function get_textAlign () : String
 	{
 		return null;
 	}
@@ -42,12 +60,12 @@ class TextDisplayBase
 		return 0.0;
 	}
 
-	function get_top () : Float
+	function get_textWidth () : Float
 	{
 		return 0.0;
 	}
 
-	function get_textWidth () : Float
+	function get_top () : Float
 	{
 		return 0.0;
 	}
@@ -72,7 +90,17 @@ class TextDisplayBase
 		return value;
 	}
 
+	function set_height (value:Float) : Float
+	{
+		return value;
+	}
+
 	function set_left (value:Float) : Float
+	{
+		return value;
+	}
+
+	function set_multiline (value:Bool) : Bool
 	{
 		return value;
 	}
@@ -82,17 +110,22 @@ class TextDisplayBase
 		return value;
 	}
 
+	function set_textAlign (value:String) : String
+	{
+		return value;
+	}
+
 	function set_textHeight (value:Float) : Float
 	{
 		return value;
 	}
 
-	function set_top (value:Float) : Float
+	function set_textWidth (value:Float) : Float
 	{
 		return value;
 	}
 
-	function set_textWidth (value:Float) : Float
+	function set_top (value:Float) : Float
 	{
 		return value;
 	}
