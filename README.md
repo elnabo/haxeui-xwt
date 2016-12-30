@@ -3,6 +3,8 @@
 </p>
 
 [![Support this project on Patreon](https://dl.dropboxusercontent.com/u/26678671/patreon_button.png)](https://www.patreon.com/haxeui)
+[![Code Climate](https://codeclimate.com/github/haxeui/haxeui-xwt/badges/gpa.svg)](https://codeclimate.com/github/haxeui/haxeui-xwt)
+[![Issue Count](https://codeclimate.com/github/haxeui/haxeui-xwt/badges/issue_count.svg)](https://codeclimate.com/github/haxeui/haxeui-xwt)
 
 <h2>haxeui-xwt</h2>
 `haxeui-xwt` is the `Xwt` backend for HaxeUI.
