@@ -7,10 +7,8 @@
 
 ## Current Behavior
 
-<!--- If describing a bug, tell us what happens instead of the expected
-behavior -->
-<!--- If suggesting a change/improvement, explain the difference from current
-behavior -->
+<!--- If describing a bug, tell us what happens instead of the expected behavior -->
+<!--- If suggesting a change/improvement, explain the difference from current behavior -->
 
 ## Possible Solution
 
@@ -39,13 +37,11 @@ behavior -->
 ## Context
 
 <!--- How has this issue affected you? What are you trying to accomplish? -->
-<!--- Providing context helps us come up with a solution that is most useful
-in the real world -->
+<!--- Providing context helps us come up with a solution that is most useful in the real world -->
 
 ## Your Environment
 
-<!--- Include as many relevant details about the environment you experienced
-the bug in -->
+<!--- Include as many relevant details about the environment you experienced the bug in -->
 
 * Version used:
 * Environment name and version (e.g. Gtk version):

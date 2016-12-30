@@ -5,6 +5,9 @@ engines:
     enabled: true
     exclude_fingerprints:
     - 6d2c708cc8dd7b28fdfc03e5f9bc7d6d
+    checks:
+      MD013:
+        enabled: false
 ratings:
   paths:
     - "**.hx"
