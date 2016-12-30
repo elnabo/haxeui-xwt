@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <native>
-    <component id="haxe.ui.components.Button" class="Xwt.Button" allowChildren="false">
-        <behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
-        <size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
-    </component>
-    <component id="haxe.ui.components.CheckBox" class="Xwt.CheckBox" allowChildren="false">
-        <behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
-        <size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
-    </component>
-    <component id="haxe.ui.components.Image" class="Xwt.ImageView" allowChildren="false">
-        <behaviour id="resource" class="haxe.ui.backend.xwt.behaviours.ControlBitmap" />
-        <size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
-    </component>
-    <component id="haxe.ui.components.Label" class="Xwt.Label" allowChildren="false">
-        <behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
-        <size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
-    </component>
-    <component id="haxe.ui.components.OptionBox" class="Xwt.RadioButton" allowChildren="false">
-        <behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
-        <size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
-    </component>
+	<component id="haxe.ui.components.Button" class="Xwt.Button" allowChildren="false">
+		<behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
+		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	</component>
+	<component id="haxe.ui.components.CheckBox" class="Xwt.CheckBox" allowChildren="false">
+		<behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
+		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	</component>
+	<component id="haxe.ui.components.Image" class="Xwt.ImageView" allowChildren="false">
+		<behaviour id="resource" class="haxe.ui.backend.xwt.behaviours.ControlBitmap" />
+		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	</component>
+	<component id="haxe.ui.components.Label" class="Xwt.Label" allowChildren="false">
+		<behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
+		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	</component>
+	<component id="haxe.ui.components.OptionBox" class="Xwt.RadioButton" allowChildren="false">
+		<behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
+		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	</component>
 </native>

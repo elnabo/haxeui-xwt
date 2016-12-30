@@ -2,7 +2,7 @@ package haxe.ui.backend;
 
 class FontData
 {
-    function new ()
-    {
-    }
+	function new ()
+	{
+	}
 }

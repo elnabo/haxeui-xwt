@@ -13,152 +13,152 @@ using StringTools;
 
 class ComponentBase
 {
-    @:allow(haxe.ui.backend) var _parent : xwt.Canvas;
-    @:allow(haxe.ui.backend) var _widget : xwt.Widget;
+	@:allow(haxe.ui.backend) var _parent : xwt.Canvas;
+	@:allow(haxe.ui.backend) var _widget : xwt.Widget;
 
-    function new ()
-    {
-    }
+	function new ()
+	{
+	}
 
-    function applyStyle (style:Style)
-    {
-        if (_widget == null)
-        {
-            return;
-        }
+	function applyStyle (style:Style) : Void
+	{
+		if (_widget == null)
+		{
+			return;
+		}
 
-        if (style.fontSize != null)
-        {
-            _widget.Font = _widget.Font.WithSize(style.fontSize);
-        }
-    }
+		if (style.fontSize != null)
+		{
+			_widget.Font = _widget.Font.WithSize(style.fontSize);
+		}
+	}
 
-    public function getImageDisplay () : ImageDisplay
-    {
-        return null;
-    }
+	public function getImageDisplay () : ImageDisplay
+	{
+		return null;
+	}
 
-    public function getTextDisplay () : TextDisplay
-    {
-        return null;
-    }
+	public function getTextDisplay () : TextDisplay
+	{
+		return null;
+	}
 
-    public function getTextInput () : TextInput
-    {
-        return null;
-    }
+	public function getTextInput () : TextInput
+	{
+		return null;
+	}
 
-    function handleAddComponent (child:Component) : Component
-    {
-        switch (XwtType.of(_widget))
-        {
-            case Canvas:
-                var canvas:xwt.Canvas = cast _widget;
-                child._parent = canvas;
-                canvas.AddChild(child._widget);
+	function handleAddComponent (child:Component) : Component
+	{
+		switch (XwtType.of(_widget))
+		{
+			case Canvas:
+				var canvas:xwt.Canvas = cast _widget;
+				child._parent = canvas;
+				canvas.AddChild(child._widget);
 
-            default:
-                throw "Only containers can have children";
-        }
+			default:
+				throw "Only containers can have children";
+		}
 
-        return child;
-    }
+		return child;
+	}
 
-    function handleClipRect (value:Rectangle)
-    {
-    }
+	function handleClipRect (value:Rectangle) : Void
+	{
+	}
 
-    function handleCreate (native:Bool)
-    {
-        var className = Type.getClassName(Type.getClass(this));
-        var nativeComponentClass = Toolkit.nativeConfig.query('component[id=${className}].@class', "Xwt.Canvas");
-        _widget = cs.system.Activator.CreateInstance(cs.system.Type.GetType('$nativeComponentClass, Xwt'));
-    }
+	function handleCreate (native:Bool) : Void
+	{
+		var className = Type.getClassName(Type.getClass(this));
+		var nativeComponentClass = Toolkit.nativeConfig.query('component[id=${className}].@class', "Xwt.Canvas");
+		_widget = cs.system.Activator.CreateInstance(cs.system.Type.GetType('$nativeComponentClass, Xwt'));
+	}
 
-    function handlePosition (left:Null<Float>, top:Null<Float>, style:Style)
-    {
-        var bounds = _parent.GetChildBounds(_widget);
+	function handlePosition (left:Null<Float>, top:Null<Float>, style:Style) : Void
+	{
+		var bounds = _parent.GetChildBounds(_widget);
 
-        if (left != null)
-        {
-            bounds.Left = left;
-        }
+		if (left != null)
+		{
+			bounds.Left = left;
+		}
 
-        if (top != null)
-        {
-            bounds.Top = top;
-        }
+		if (top != null)
+		{
+			bounds.Top = top;
+		}
 
-        _parent.SetChildBounds(_widget, bounds);
-    }
+		_parent.SetChildBounds(_widget, bounds);
+	}
 
-    function handlePostReposition ()
-    {
-    }
+	function handlePostReposition () : Void
+	{
+	}
 
-    function handlePreReposition ()
-    {
-    }
+	function handlePreReposition () : Void
+	{
+	}
 
-    function handleReady ()
-    {
-    }
+	function handleReady () : Void
+	{
+	}
 
-    function handleRemoveComponent (child:Component, dispose:Bool=true) : Component
-    {
-        return child;
-    }
+	function handleRemoveComponent (child:Component, dispose:Bool = true) : Component
+	{
+		return child;
+	}
 
-    function handleSetComponentIndex (child:Component, index:Int)
-    {
-    }
+	function handleSetComponentIndex (child:Component, index:Int) : Void
+	{
+	}
 
-    function handleSize (width:Null<Float>, height:Null<Float>, style:Style)
-    {
-        var bounds = _parent.GetChildBounds(_widget);
+	function handleSize (width:Null<Float>, height:Null<Float>, style:Style) : Void
+	{
+		var bounds = _parent.GetChildBounds(_widget);
 
-        if (width != null)
-        {
-            bounds.Width = width;
-        }
+		if (width != null)
+		{
+			bounds.Width = width;
+		}
 
-        if (height != null)
-        {
-            bounds.Height = height;
-        }
+		if (height != null)
+		{
+			bounds.Height = height;
+		}
 
-        _parent.SetChildBounds(_widget, bounds);
-    }
+		_parent.SetChildBounds(_widget, bounds);
+	}
 
-    function handleVisibility (show:Bool)
-    {
-    }
+	function handleVisibility (show:Bool) : Void
+	{
+	}
 
-    public function hasImageDisplay () : Bool
-    {
-        return false;
-    }
+	public function hasImageDisplay () : Bool
+	{
+		return false;
+	}
 
-    public function hasTextDisplay () : Bool
-    {
-        return false;
-    }
+	public function hasTextDisplay () : Bool
+	{
+		return false;
+	}
 
-    public function hasTextInput () : Bool
-    {
-        return false;
-    }
+	public function hasTextInput () : Bool
+	{
+		return false;
+	}
 
-    function mapEvent (type:String, listener:UIEvent->Void)
-    {
-        haxe.ui.backend.xwt.EventMapper.mapEvent(_widget, type, listener);
-    }
+	function mapEvent (type:String, listener:UIEvent->Void) : Void
+	{
+		haxe.ui.backend.xwt.EventMapper.mapEvent(_widget, type, listener);
+	}
 
-    function removeImageDisplay ()
-    {
-    }
+	function removeImageDisplay () : Void
+	{
+	}
 
-    function unmapEvent (type:String, listener:UIEvent->Void)
-    {
-    }
+	function unmapEvent (type:String, listener:UIEvent->Void) : Void
+	{
+	}
 }

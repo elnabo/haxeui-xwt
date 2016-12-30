@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://dl.dropboxusercontent.com/u/26678671/haxeui2-warning.png"/>
+	<img src="https://dl.dropboxusercontent.com/u/26678671/haxeui2-warning.png"/>
 </p>
 
 [![Support this project on Patreon](https://dl.dropboxusercontent.com/u/26678671/patreon_button.png)](https://www.patreon.com/haxeui)
@@ -12,8 +12,8 @@
 </p>
 
 <h2>Installation</h2>
- * `haxeui-xwt` has a dependency to <a href="https://github.com/haxeui/haxeui-core">`haxeui-core`</a>, and so that too must be installed.
- * You will also need a copy of the `Xwt` libraries which can be obtained <a href="https://github.com/mono/xwt">here</a>. The easiest way to install and setup the libraries is to follow the instructions <a href="https://github.com/mono/xwt">here</a>.
+* `haxeui-xwt` has a dependency to <a href="https://github.com/haxeui/haxeui-core">`haxeui-core`</a>, and so that too must be installed.
+* You will also need a copy of the `Xwt` libraries which can be obtained <a href="https://github.com/mono/xwt">here</a>. The easiest way to install and setup the libraries is to follow the instructions <a href="https://github.com/mono/xwt">here</a>.
 
 Eventually all these libs will become haxelibs, however, currently in their alpha form they do not even contain a `haxelib.json` file (for dependencies, etc) and therefore can only be used by downloading the source and using the `haxelib dev` command or by directly using the git versions using the `haxelib git` command (recommended). Eg:
 
@@ -44,4 +44,3 @@ Once the toolkit is initialised you can add components using the methods specifi
 * <a href="https://github.com/haxeui/haxeui-templates">haxeui-templates</a> - Set of templates for IDE's to allow quick project creation.
 * <a href="https://github.com/haxeui/haxeui-bdd">haxeui-bdd</a> - A behaviour driven development engine written specifically for HaxeUI (uses <a href="https://github.com/haxeui/haxe-bdd">haxe-bdd</a> which is a gherkin/cucumber inspired project).
 * <a href="https://www.youtube.com/watch?v=L8J8qrR2VSg&feature=youtu.be">WWX2016 presentation</a> - A presentation given at WWX2016 regarding HaxeUI.
-
