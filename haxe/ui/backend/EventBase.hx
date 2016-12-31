@@ -4,16 +4,15 @@ import haxe.ui.core.UIEvent;
 
 class EventBase
 {
+	public function new ()
+	{
+	}
 
-    public function new() 
-    {
-    }
-    
-    public function cancel()
-    {
-    }
-    
-    private function postClone(event:UIEvent)
-    {
-    }
+	public function cancel () : Void
+	{
+	}
+
+	function postClone (event:UIEvent) : Void
+	{
+	}
 }

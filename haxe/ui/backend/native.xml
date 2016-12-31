@@ -21,7 +21,7 @@
 		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
 	</component>
 
-    <component id="haxe.ui.containers.TabView" class="Xwt.Notebook">
-        <size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	<component id="haxe.ui.containers.TabView" class="Xwt.Notebook">
+		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
 	</component>
 </native>
