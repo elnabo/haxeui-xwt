@@ -13,8 +13,6 @@
 ## Installation
 
 * `haxeui-xwt` has a dependency to [`haxeui-core`](https://github.com/haxeui/haxeui-core), and so that too must be installed.
-* You will also need a copy of the `Xwt` libraries which can be obtained [here](https://github.com/mono/xwt).
-  The easiest way to install and setup the libraries is to follow the instructions [here](https://github.com/mono/xwt).
 
 Eventually all these libs will become haxelibs, however, currently in their alpha form they do not even contain a `haxelib.json` file
 (for dependencies, etc) and therefore can only be used by downloading the source and using the `haxelib dev` command or by directly
@@ -25,7 +23,7 @@ haxelib git haxeui-core https://github.com/haxeui/haxeui-core
 haxelib dev haxeui-xwt path/to/expanded/source/archive
 ```
 
-You will need to place a copy of your `Xwt.dll` inside the `dlls/` folder.
+You can find the required dlls in the `dlls/` folder, see `dlls/README.md` for license information and instructions on how to rebuild them yourself.
 
 ## Usage
 
