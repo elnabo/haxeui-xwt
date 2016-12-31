@@ -8,6 +8,7 @@ haxe:
   - "3.2.1"
   - "development"
 
+dist: trusty
 sudo: false
 
 addons:
@@ -24,6 +25,9 @@ install:
   - haxelib install hscript
   - git clone https://github.com/haxeui/haxeui-core.git --depth=1
   - haxelib dev haxeui-core haxeui-core
+  - haxelib list
+  - mono --version
+  - mcs --version
 
 script:
   - cd $TRAVIS_BUILD_DIR
