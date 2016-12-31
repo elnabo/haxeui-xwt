@@ -10,7 +10,16 @@ haxe:
 
 sudo: false
 
+addons:
+  apt:
+    packages:
+    - mono-mcs
+
 install:
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
+      brew update;
+      brew install mono;
+    fi
   - haxelib install hxcs
   - haxelib install hscript
   - git clone https://github.com/haxeui/haxeui-core.git --depth=1
