@@ -1,0 +1,21 @@
+language: haxe
+
+os:
+  - linux
+  - osx
+
+haxe:
+  - "3.2.1"
+  - "development"
+
+sudo: false
+
+install:
+  - haxelib install hxcs
+  - haxelib install hscript
+  - git clone https://github.com/haxeui/haxeui-core.git --depth=1
+  - haxelib dev haxeui-core haxeui-core
+
+script:
+  - cd $TRAVIS_BUILD_DIR
+  - haxe test.hxml

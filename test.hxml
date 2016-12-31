@@ -1,0 +1,8 @@
+-lib hscript
+-lib haxeui-core
+
+-cs bin
+-cp .
+
+--macro haxe.macro.Compiler.include("haxe.ui")
+extraParams.hxml
