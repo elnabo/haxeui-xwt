@@ -6,6 +6,7 @@ clone_depth: 1
 
 environment:
     global:
+        ROOT: C:\projects\haxeui-xwt
         HAXELIB_ROOT: C:\projects\haxelib
 
 install:
@@ -21,6 +22,9 @@ install:
     - haxelib install hxcs
     - haxelib install hscript
     - haxelib git haxeui-core https://github.com/haxeui/haxeui-core
+
+build_script:
+    - haxelib dev haxeui-xwt %ROOT%
 
 test_script:
     - cd %APPVEYOR_BUILD_FOLDER%
