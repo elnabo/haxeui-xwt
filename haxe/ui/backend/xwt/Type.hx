@@ -6,6 +6,7 @@ enum XwtType
 	Canvas;
 	CheckBox;
 	Label;
+	Notebook;
 	RadioButton;
 	Other;
 }
@@ -18,6 +19,7 @@ class Type
 		else if (Std.is(w, xwt.Canvas)) Canvas;
 		else if (Std.is(w, xwt.CheckBox)) CheckBox;
 		else if (Std.is(w, xwt.Label)) Label;
+		else if (Std.is(w, xwt.Notebook)) Notebook;
 		else if (Std.is(w, xwt.RadioButton)) RadioButton;
 		else Other;
 	}

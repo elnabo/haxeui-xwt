@@ -20,4 +20,8 @@
 		<behaviour id="text" class="haxe.ui.backend.xwt.behaviours.ControlLabel" />
 		<size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
 	</component>
+
+    <component id="haxe.ui.containers.TabView" class="Xwt.Notebook">
+        <size class="haxe.ui.backend.xwt.sizes.WidgetSize" includePadding="false" />
+	</component>
 </native>

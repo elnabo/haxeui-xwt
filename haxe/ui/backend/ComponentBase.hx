@@ -57,6 +57,12 @@ class ComponentBase
 				child._parent = canvas;
 				canvas.AddChild(child._widget);
 
+			case Notebook:
+				var notebook:xwt.Notebook = cast _widget;
+				child._parent = new xwt.Canvas();
+				child._parent.AddChild(child._widget);
+				notebook.Add(child._parent, child.text);
+
 			default:
 				throw "Only containers can have children";
 		}
