@@ -1,6 +1,7 @@
 -D net-ver=40
 -net-lib dlls/System.Xaml.dll
 -net-lib dlls/Xwt.dll
+-net-lib dlls/Xwt.Gtk3.dll
 
 --macro include("haxe.ui.backend.xwt.behaviours")
 --macro include("haxe.ui.backend.xwt.sizes")
