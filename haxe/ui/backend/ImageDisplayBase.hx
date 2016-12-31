@@ -77,4 +77,8 @@ class ImageDisplayBase
 		left = 0;
 		top = 0;
 	}
+
+	public function dispose () : Void
+	{
+	}
 }
