@@ -1,0 +1,27 @@
+version: "{build}"
+
+clone_folder: C:\projects\haxeui-xwt
+
+clone_depth: 1
+
+environment:
+    global:
+        HAXELIB_ROOT: C:\projects\haxelib
+
+install:
+    # Install haxe
+    - cinst haxe -y
+    - RefreshEnv
+    - haxe -version
+    - neko -version
+    # Setup haxe
+    - mkdir "%HAXELIB_ROOT%"
+    - haxelib setup "%HAXELIB_ROOT%"
+    # Dependencies
+    - haxelib install hxcs
+    - haxelib install hscript
+    - haxelib git haxeui-core https://github.com/haxeui/haxeui-core
+
+test_script:
+    - cd %APPVEYOR_BUILD_FOLDER%
+    - haxe test.hxml
