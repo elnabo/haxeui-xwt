@@ -2,137 +2,137 @@ package haxe.ui.backend;
 
 class TextDisplayBase
 {
-	public var color(get, set) : Int;
-	public var fontName(get, set) : String;
-	public var fontSize(get, set) : Null<Float>;
-	public var height(get, set) : Float;
-	public var left(get, set) : Float;
-	public var multiline(get, set) : Bool;
-	public var text(get, set) : String;
-	public var textAlign(get, set) : String;
-	public var textHeight(get, null) : Float;
-	public var textWidth(get, null) : Float;
-	public var top(get, set) : Float;
-	public var width(get, set) : Float;
+	@:isVar public var color(get, set) : Int;
+	@:isVar public var fontName(get, set) : String;
+	@:isVar public var fontSize(get, set) : Null<Float>;
+	@:isVar public var height(get, set) : Float;
+	@:isVar public var left(get, set) : Float;
+	@:isVar public var multiline(get, set) : Bool;
+	@:isVar public var text(get, set) : String;
+	@:isVar public var textAlign(get, set) : String;
+	@:isVar public var textHeight(get, null) : Float;
+	@:isVar public var textWidth(get, null) : Float;
+	@:isVar public var top(get, set) : Float;
+	@:isVar public var width(get, set) : Float;
 
 	function get_color () : Int
 	{
-		return 0;
+		return color;
 	}
 
 	function get_fontName () : String
 	{
-		return null;
+		return fontName;
 	}
 
 	function get_fontSize () : Null<Float>
 	{
-		return null;
+		return fontSize;
 	}
 
 	function get_height () : Float
 	{
-		return -1;
+		return height;
 	}
 
 	function get_left () : Float
 	{
-		return 0.0;
+		return left;
 	}
 
 	function get_multiline () : Bool
 	{
-		return true;
+		return multiline;
 	}
 
 	function get_text () : String
 	{
-		return null;
+		return text;
 	}
 
 	function get_textAlign () : String
 	{
-		return null;
+		return textAlign;
 	}
 
 	function get_textHeight () : Float
 	{
-		return 0.0;
+		return textHeight;
 	}
 
 	function get_textWidth () : Float
 	{
-		return 0.0;
+		return textWidth;
 	}
 
 	function get_top () : Float
 	{
-		return 0.0;
+		return top;
 	}
 
 	function get_width () : Float
 	{
-		return 0.0;
+		return width;
 	}
 
 	function set_color (value:Int) : Int
 	{
-		return value;
+		return color = value;
 	}
 
 	function set_fontName (value:String) : String
 	{
-		return value;
+		return fontName = value;
 	}
 
 	function set_fontSize (value:Null<Float>) : Null<Float>
 	{
-		return value;
+		return fontSize = value;
 	}
 
 	function set_height (value:Float) : Float
 	{
-		return value;
+		return height = value;
 	}
 
 	function set_left (value:Float) : Float
 	{
-		return value;
+		return left = value;
 	}
 
 	function set_multiline (value:Bool) : Bool
 	{
-		return value;
+		return multiline = value;
 	}
 
 	function set_text (value:String) : String
 	{
-		return value;
+		return text = value;
 	}
 
 	function set_textAlign (value:String) : String
 	{
-		return value;
+		return textAlign = value;
 	}
 
 	function set_textHeight (value:Float) : Float
 	{
-		return value;
+		return textHeight = value;
 	}
 
 	function set_textWidth (value:Float) : Float
 	{
-		return value;
+		return textWidth = value;
 	}
 
 	function set_top (value:Float) : Float
 	{
-		return value;
+		return top = value;
 	}
 
 	function set_width (value:Float) : Float
 	{
-		return value;
+		return width = value;
 	}
 
 	function new ()

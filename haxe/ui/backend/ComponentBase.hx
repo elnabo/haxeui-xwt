@@ -13,7 +13,10 @@ using StringTools;
 
 class ComponentBase
 {
+	var _imageDisplay : ImageDisplay;
 	@:allow(haxe.ui.backend) var _parent : xwt.Canvas;
+	var _textDisplay : TextDisplay;
+	var _textInput : TextInput;
 	@:allow(haxe.ui.backend) var _widget : xwt.Widget;
 
 	function new ()
@@ -35,17 +38,32 @@ class ComponentBase
 
 	public function getImageDisplay () : ImageDisplay
 	{
-		return null;
+		if (_imageDisplay == null)
+		{
+			_imageDisplay = new ImageDisplay();
+		}
+
+		return _imageDisplay;
 	}
 
 	public function getTextDisplay () : TextDisplay
 	{
-		return null;
+		if (_textDisplay == null)
+		{
+			_textDisplay = new TextDisplay();
+		}
+
+		return _textDisplay;
 	}
 
 	public function getTextInput () : TextInput
 	{
-		return null;
+		if (_textInput == null)
+		{
+			_textInput = new TextInput();
+		}
+
+		return _textInput;
 	}
 
 	function handleAddComponent (child:Component) : Component
@@ -112,6 +130,21 @@ class ComponentBase
 
 	function handleRemoveComponent (child:Component, dispose:Bool = true) : Component
 	{
+		switch (XwtType.of(_widget))
+		{
+			case Canvas:
+				var canvas:xwt.Canvas = cast _widget;
+				canvas.RemoveChild(child._widget);
+
+			case Notebook:
+				//TODO: figure out how to remove tab
+				//var notebook:xwt.Notebook = cast _widget;
+				//notebook.Remove(child._parent);
+
+			default:
+				throw "Only containers can have children";
+		}
+
 		return child;
 	}
 
@@ -126,11 +159,13 @@ class ComponentBase
 		if (width != null)
 		{
 			bounds.Width = width;
+			_widget.WidthRequest = width;
 		}
 
 		if (height != null)
 		{
 			bounds.Height = height;
+			_widget.HeightRequest = height;
 		}
 
 		_parent.SetChildBounds(_widget, bounds);
@@ -138,21 +173,22 @@ class ComponentBase
 
 	function handleVisibility (show:Bool) : Void
 	{
+		_widget.Visible = show;
 	}
 
 	public function hasImageDisplay () : Bool
 	{
-		return false;
+		return _imageDisplay != null;
 	}
 
 	public function hasTextDisplay () : Bool
 	{
-		return false;
+		return _textDisplay != null;
 	}
 
 	public function hasTextInput () : Bool
 	{
-		return false;
+		return _textInput != null;
 	}
 
 	function mapEvent (type:String, listener:UIEvent->Void) : Void
@@ -162,6 +198,11 @@ class ComponentBase
 
 	function removeImageDisplay () : Void
 	{
+		if (_imageDisplay != null)
+		{
+			_imageDisplay.dispose();
+			_imageDisplay = null;
+		}
 	}
 
 	function unmapEvent (type:String, listener:UIEvent->Void) : Void
