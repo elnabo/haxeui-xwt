@@ -1,9 +1,11 @@
 package haxe.ui.backend;
 
 import haxe.ui.assets.ImageInfo;
+import haxe.ui.util.Rectangle;
 
 class ImageDisplayBase
 {
+	public var imageClipRect : Rectangle;
 	@:isVar public var imageInfo(get, set) : ImageInfo;
 	@:isVar public var imageHeight(get, set) : Float;
 	@:isVar public var imageWidth(get, set) : Float;

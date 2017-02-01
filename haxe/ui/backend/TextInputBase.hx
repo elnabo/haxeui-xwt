@@ -2,9 +2,10 @@ package haxe.ui.backend;
 
 class TextInputBase extends TextDisplayBase
 {
-    public var password:Bool;
-	
+	public var hscrollPos : Float;
+	public var password : Bool;
 	@:isVar public var vscrollPos(get, set) : Float;
+	public var wordWrap : Bool;
 
 	function get_vscrollPos () : Float
 	{
