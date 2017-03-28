@@ -1,10 +1,10 @@
-![Alpha warning](https://dl.dropboxusercontent.com/u/26678671/haxeui2-warning.png)
+![Alpha warning](http://haxeui.org/db/haxeui2-warning.png)
 
-[![Support this project on Patreon](https://dl.dropboxusercontent.com/u/26678671/patreon_button.png)](https://www.patreon.com/haxeui)
 [![Build Status](https://travis-ci.org/haxeui/haxeui-xwt.svg?branch=master)](https://travis-ci.org/haxeui/haxeui-xwt)
 [![Build status](https://ci.appveyor.com/api/projects/status/2phv2o2wg8md1ygo/branch/master?svg=true)](https://ci.appveyor.com/project/ibilon/haxeui-xwt/branch/master)
 [![Code Climate](https://codeclimate.com/github/haxeui/haxeui-xwt/badges/gpa.svg)](https://codeclimate.com/github/haxeui/haxeui-xwt)
 [![Issue Count](https://codeclimate.com/github/haxeui/haxeui-xwt/badges/issue_count.svg)](https://codeclimate.com/github/haxeui/haxeui-xwt)
+[![Support this project on Patreon](http://haxeui.org/db/patreon_button.png)](https://www.patreon.com/haxeui)
 
 # haxeui-xwt
 
