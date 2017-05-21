@@ -1,5 +1,7 @@
 package haxe.ui.backend;
 
+import haxe.ui.styles.Style;
+
 class TextDisplayBase
 {
 	@:isVar public var color(get, set) : Int;
@@ -136,6 +138,10 @@ class TextDisplayBase
 	}
 
 	function new ()
+	{
+	}
+
+	public function applyStyle (style:Style)
 	{
 	}
 }
