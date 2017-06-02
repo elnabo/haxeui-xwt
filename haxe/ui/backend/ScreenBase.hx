@@ -11,6 +11,7 @@ class ScreenBase
 	public var focus : Component;
 	public var height(get, null) : Float;
 	public var options : Dynamic;
+	public var title(get, set) : String;
 	public var width(get, null) : Float;
 
 	@:allow(haxe.ui.backend) var _canvas(get, never) : xwt.Canvas;
