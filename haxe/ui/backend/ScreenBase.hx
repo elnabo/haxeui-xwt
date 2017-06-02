@@ -28,6 +28,16 @@ class ScreenBase
 		return size().Height;
 	}
 
+	function get_title () : String
+	{
+		return _window.Title;
+	}
+	function set_title (s:String) : String
+	{
+		_window.Title = s;
+		return _window.Title;
+	}
+
 	function get_width () : Float
 	{
 		return size().Width;
